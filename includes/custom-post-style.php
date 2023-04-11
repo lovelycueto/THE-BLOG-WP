@@ -56,10 +56,30 @@ function theBlog_custom_post (){
     );
     register_post_type('featuredPost', $featuredPost_args);
 
+    // content__sidebar
+    $ContentsidePost_label = array(
+        'name'              => __('Contentside Post', 'textdomain'),
+        'singular_name'     => __('Contentside Post', 'textdomain'),
+        'add_new'           => __('add Contentside Post', 'textdomain'),
+        'add_new_item'   => __('Add Contentside Post', 'textdomain'),
+        'edit_item'         =>__('edit Contentside Post', 'textdomain'),
+        'all_items'         =>__('Contentside Post', 'textdomain')
+    );
+    $ContentsidePost_args = array(
+        'labels'        => $ContentsidePost_label,
+        'public'        => true,
+        'capability_type' => 'post',
+        'show_ui'       => true,
+        'taxonomies'    => array('post_tag', 'category'),
+        'supports'      => array('title', 'editor', 'thumbnail', 'excerpt')
+    );
+    register_post_type('ContentsidePost', $ContentsidePost_args);
+
 
 }
 
 add_action('init', 'theBlog_custom_post');
+
 
 
 

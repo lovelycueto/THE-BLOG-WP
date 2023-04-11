@@ -193,7 +193,7 @@
   }
   
   .card__sm img {
-    width: 100%;
+    width: 20rem;
     height: 16.5rem;
     object-fit: cover;
   }
@@ -234,6 +234,7 @@
   .card__md__content a {
     opacity: 0.8;
     font-weight: bold;
+    color:#ffffff;
   }
   
   .feature {
@@ -307,6 +308,7 @@
     opacity: 0.8;
     font-weight: bold;
     font-size: 1.4rem;
+    color:#ffffff;
   }
   
   .card__mini {
@@ -322,6 +324,7 @@
     font-size: 1.4rem;
     opacity: 0.8;
     font-weight: bold;
+    color:#ffffff;
   }
   
   .footer {
@@ -371,6 +374,7 @@
   
     .banner__story img {
       height: 49rem;
+      width:100%;
     }
   
     .latest__wrapper {
@@ -547,3 +551,68 @@
     content: "\f185";
   }
   
+
+  /** the content**/
+  .theContent{
+    background:#ffffff;
+    padding:5rem 0;
+  }
+
+
+  .content__inclusion{
+    display:flex;
+    gap:5rem;
+  }
+   .theContent h1{
+    color:black;
+    text-align:center;
+    margin:2rem 0;
+    font-size:3rem;
+    text-transform:uppercase;
+    letter-spacing:1rem;
+  }
+  .content img{
+    width:70rem;
+    height:40rem;
+   margin:0 auto;
+  }
+  .date small{
+    color: red;
+    font-size:1.5rem;
+   font-weight:bold;
+    float:right;
+  }
+  .paragraph{
+    color:black;
+    width:70rem;
+    font-size:2rem;
+    text-align:justify;
+    margin-top:3rem; 
+  }
+
+  /* content sidebar */
+
+  .content__card img{
+    width:30rem;
+    height:20rem;
+  }
+
+  .prgph small {
+    font-size:2rem;
+    color:black;
+  }
+
+  a{
+    color:gray;
+    font-size:1.5rem;
+  }
+
+  .time small{
+    color:black;
+    font-weight:bold;
+    font-size:1.6rem;
+  }
+
+
+
+ 

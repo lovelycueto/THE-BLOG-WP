@@ -36,7 +36,7 @@
                   <p>
                   <?php echo get_the_excerpt() ?>
                   </p>
-                  <a href="#">Read More...</a>
+                  <a href="<?php echo the_permalink() ?>">Read More...</a>
                 </div>
               </article>
               <?php
@@ -55,8 +55,8 @@
 
         $args = array(
             'post_type' =>'BlogPost',
-            'post_per_page' => 3,
-            'offset'        => 2,
+            'post_per_page' => 4,
+            'offset'        => 1,
 
     );
 
@@ -72,7 +72,7 @@
                 <div class="card__sm__content">
                   <small><?php  echo get_the_date('m-d-Y') ?></small>
                   <h3><?php the_title(); ?></h3>
-                  <a href="#">Read More...</a>
+                  <a href="<?php echo the_permalink() ?>">Read More...</a>
                 </div>
               </div>
 
@@ -114,7 +114,8 @@ $newQuery = new WP_Query($args)
             <div class="card__md__content">
               <ul>
                 <li><small><?php echo get_the_date('M-d-Y') ?></small></li>
-                <li><?php 
+                <li>
+                  <?php 
                 $post_tags = get_the_tags();
 
                 if($post_tags){
@@ -137,7 +138,7 @@ $newQuery = new WP_Query($args)
               <p>
              <?php echo get_the_excerpt() ?>
               </p>
-              <a href="#">Read More...</a>
+              <a href="<?php echo the_permalink() ?>">Read More...</a>
             </div>
 
           </div>
@@ -206,7 +207,7 @@ $newQuery = new WP_Query($args)
                 <p>
                 <?php echo get_the_excerpt(); ?>
                 </p>
-                <a href="#">Read More...</a>
+                <a href="<?php echo the_permalink() ?>">Read More...</a>
               </div>
             </article>
    
@@ -223,58 +224,35 @@ $newQuery = new WP_Query($args)
 
 
           <div class="feature__sidebar">
-            <div class="card__mini">
-              <small>Oct 21, 2022</small>
-              <h4>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia,
-                sit.
-              </h4>
-              <a href="#">Read More ...</a>
-            </div>
-            <div class="card__mini">
-              <small>Oct 21, 2022</small>
-              <h4>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia,
-                sit.
-              </h4>
-              <a href="#">Read More ...</a>
-            </div>
+          <?php 
+
+            $args = array(
+            'post_type' =>'ContentsidePost',
+            'posts_per_page' => 6,
+            'offset'        => 3,
+          );
+
+          $newQuery = new WP_Query($args)
+
+          ?>
+
+        <?php if($newQuery->have_posts()) : while($newQuery->have_posts()) : $newQuery->the_post(); ?>
 
             <div class="card__mini">
-              <small>Oct 21, 2022</small>
+              <small><?php echo get_the_date('M-d-Y') ?></small>
               <h4>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia,
-                sit.
+                <?php the_title(); ?>
               </h4>
-              <a href="#">Read More ...</a>
+              <a href="<?php echo the_permalink() ?>">Read More ...</a>
             </div>
 
-            <div class="card__mini">
-              <small>Oct 21, 2022</small>
-              <h4>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia,
-                sit.
-              </h4>
-              <a href="#">Read More ...</a>
-            </div>
-
-            <div class="card__mini">
-              <small>Oct 21, 2022</small>
-              <h4>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia,
-                sit.
-              </h4>
-              <a href="#">Read More ...</a>
-            </div>
-
-            <div class="card__mini">
-              <small>Oct 21, 2022</small>
-              <h4>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia,
-                sit.
-              </h4>
-              <a href="#">Read More ...</a>
-            </div>
+            <?php
+                endwhile;
+            else:
+                echo "no available content";
+            endif;
+            wp_reset_postdata();
+              ?>
           </div>
         </div>
       </div>
